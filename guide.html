@@ -338,7 +338,63 @@ html {
 .nav-links li a:hover{
     background: #040506;
 }
+.search-container {
+            max-width: 600px;
+            margin: auto;
+        }
 
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-top: 2rem;
+            border: 2px solid #080808;
+            border-radius: 25px;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            padding: 8px;
+        }
+
+        .search-bar button {
+            border: none;
+            background-color: #46214c;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+
+        .suggestions {
+            margin-top: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .suggestions div {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .suggestions div:hover {
+            background-color: #f0f0f0;
+        }
     </style>
 </head>
 <body>
@@ -383,7 +439,59 @@ html {
     <h1>Plan Your Dream Vacation</h1>
     <p>Discover the best destinations tailored just for you!</p>
 </div>
+<!-----Search Button------>
+<div class="search-container">
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search Your Destination...">
+        <button type="button">Search</button>
+    </div>
+    <div class="suggestions" id="suggestionsBox"></div>
+</div>
 
+<script>
+    const states = [
+    "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim", "Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli","Daman and Diu","Lakshadweep","Delhi","Puducherry","Jammu & Kashmir","Ladakh"
+    ];
+
+    const searchInput = document.getElementById("searchInput");
+    const suggestionsBox = document.getElementById("suggestionsBox");
+
+    searchInput.addEventListener("input", () => {
+        const input = searchInput.value.toLowerCase();
+        suggestionsBox.innerHTML = ""; // Clear previous suggestions
+
+        if (input) {
+            const filteredStates = states.filter(state => 
+                state.toLowerCase().includes(input)
+            );
+
+            if (filteredStates.length > 0) {
+                filteredStates.forEach(state => {
+                    const suggestionDiv = document.createElement("div");
+                    suggestionDiv.textContent = state;
+                    suggestionDiv.addEventListener("click", () => {
+                        searchInput.value = state; // Select state
+                        suggestionsBox.innerHTML = ""; // Clear suggestions
+                    });
+                    suggestionsBox.appendChild(suggestionDiv);
+                });
+            } else {
+                suggestionsBox.innerHTML = "<div>No results found</div>";
+            }
+
+            suggestionsBox.style.display = "block";
+        } else {
+            suggestionsBox.style.display = "none";
+        }
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".search-container")) {
+            suggestionsBox.style.display = "none";
+        }
+    });
+</script>
+<!-------Search button ends---------->
 <section id="destinations" class="section">
     <h2>Top Destinations</h2>
     <div class="destination">
