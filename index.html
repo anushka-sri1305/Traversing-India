@@ -259,7 +259,7 @@
                 <div class="logolink">
                     <a href="https://github.com/anushka-sri1305" target="_blank"
                         ><img
-                            src="img/GitHub120px.png"
+                            src="github.png"
                             alt="Github-Logo"
                             class="github-logo"
                     /></a>
@@ -278,7 +278,7 @@
                 <div class="logolink">
                     <a href="https://github.com/Sourav2719" target="_blank"
                         ><img
-                            src="img/GitHub120px.png"
+                            src="github.png"
                             alt="Github-Logo"
                             class="github-logo"
                     /></a>
@@ -298,7 +298,7 @@
                 <div class="logolink">
                     <a href="https://github.com/Animesh-Sharmaa" target="_blank"
                         ><img
-                            src="img/GitHub120px.png"
+                            src="github.png"
                             alt="Github-Logo"
                             class="github-logo"
                     /></a>
@@ -317,7 +317,7 @@
                 <div class="logolink">
                     <a href="https://github.com/01adityapratap" target="_blank"
                         ><img
-                            src="img/GitHub120px.png"
+                            src="github.png"
                             alt="Github-Logo"
                             class="github-logo"
                     /></a>
@@ -375,8 +375,21 @@
                             ></textarea>
                         </div>
                     </div>
-                    <input class="crow-s" type="submit" value="Submit" />
+                    <form id="myForm">
+                        <input class="crow-s" type="submit" value="Submit" onclick="showAlert(event)" />
+                    </form>
+                
+                    <script>
+                        function showAlert(event) {
+                            event.preventDefault(); // Prevent the default form submission
+                            alert("Your submission has been received!");
+                            
+                            // Reset form fields after alert
+                            document.getElementById("contactForm").reset();
+                        }
+                    </script>
                 </form>
+
                 <div class="cbox">
                     <div>
                         <p class="cbox-message">
@@ -425,7 +438,7 @@
                         ><i class="fa fa-globe"></i
                     ></a>
                     <a
-                        href="https://github.com/PritamSarbajna"
+                        href="https://github.com/anushka-sri1305"
                         target="_blank"
                         rel="noreferrer"
                         ><i class="fa fa-github"></i
