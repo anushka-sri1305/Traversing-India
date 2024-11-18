@@ -481,53 +481,73 @@ html {
             suggestionsBox.style.display = "none";
         }
     });
+
 </script>
-<!-------Search button ends---------->
+<!----- Destinations Section ----->
 <section id="destinations" class="section">
     <h2>Top Destinations</h2>
-    <div class="destination">
-        <div class="destination-card">
-            <img src="meghalaya.jpg" alt="Meghalaya">
+    <div id="destinationCards" class="destination">
+        <div class="destination-card" data-title="Uttarakhand">
+            <img src="Dehradune.jpg" alt="Dehradune">
+            <h3>Dehradune, Uttarakhand</h3>
+            <button onclick="openModal('Dehradune, Uttarakhand')">Book Now</button>
+        </div>
+        <div class="destination-card" data-title="Meghalaya">
+            <img src="meghalaya.jpg" alt="Cherrapunji">
             <h3>Cherrapunji, Meghalaya</h3>
             <button onclick="openModal('Cherrapunji, Meghalaya')">Book Now</button>
         </div>
-        <div class="destination-card">
+        <div class="destination-card" data-title="Goa">
             <img src="goa.jpg" alt="Goa">
             <h3>Goa</h3>
             <button onclick="openModal('Goa')">Book Now</button>
         </div>
-        <div class="destination-card">
-            <img src="jaipur.jpg" alt="Rajasthan">
+        <div class="destination-card" data-title="Rajasthan">
+            <img src="jaipur.jpg" alt="Jaipur">
             <h3>Jaipur, Rajasthan</h3>
             <button onclick="openModal('Jaipur, Rajasthan')">Book Now</button>
         </div>
-        <div class="destination-card">
-            <img src="kerala.jpg" alt="Kerala">
+        <div class="destination-card" data-title="Kerala">
+            <img src="kerala.jpg" alt="Munnar">
             <h3>Munnar Hills, Kerala</h3>
-            <button onclick="openModal('Kerala')">Book Now</button>
+            <button onclick="openModal('Munnar Hills, Kerala')">Book Now</button>
         </div>
-        <div class="destination-card">
-            <img src="kolkata.jpg" alt="West-Bengal">
-            <h3>Kolkata, West-Bengal</h3>
-            <button onclick="openModal('Kolkata, West-Bengal')">Book Now</button>
+        <div class="destination-card" data-title="West Bengal">
+            <img src="kolkata.jpg" alt="Kolkata">
+            <h3>Kolkata, West Bengal</h3>
+            <button onclick="openModal('Kolkata, West Bengal')">Book Now</button>
         </div>
-        <div class="destination-card">
-            <img src="khajuraho.jpg" alt="Madhaya Pradesh">
-            <h3>Khajuraho, Madhaya Pradesh</h3>
-            <button onclick="openModal('Khajuraho, Madhaya Pradesh')">Book Now</button>
+        
+        <div class="destination-card" data-title="Assam">
+            <img src="ghuwahati.jpg" alt="Guwahati">
+            <h3>Guwahati, Assam</h3>
+            <button onclick="openModal('Guwahati, Assam')">Book Now</button>
         </div>
-        <div class="destination-card">
-            <img src="ghuwahati.jpg" alt="Ghuwahati">
-            <h3>Ghuwahati, Assam</h3>
-            <button onclick="openModal('Khajuraho, Madhaya Pradesh')">Book Now</button>
-        </div>
-        <div class="destination-card">
+        <div class="destination-card" data-title="Odisha">
             <img src="puri.jpg" alt="Odisha">
             <h3>Puri, Odisha</h3>
             <button onclick="openModal('Puri, Odisha')">Book Now</button>
         </div>
     </div>
 </section>
+
+<script>
+    const destinationCards = document.querySelectorAll(".destination-card");
+
+    // Filter destination cards based on search input
+    searchInput.addEventListener("input", () => {
+        const input = searchInput.value.toLowerCase();
+        destinationCards.forEach(card => {
+            const title = card.dataset.title.toLowerCase();
+            if (title.includes(input)) {
+                card.style.display = "block"; // Show matching cards
+            } else {
+                card.style.display = "none"; // Hide non-matching cards
+            }
+        });
+    });
+</script>
+
 
 <section id="packages" class="section">
     <h2>Tour Packages</h2>
@@ -561,6 +581,7 @@ html {
     function closeModal() {
         document.getElementById('modal').style.display = 'none';
     }
+    
 </script>
 
 </body>
