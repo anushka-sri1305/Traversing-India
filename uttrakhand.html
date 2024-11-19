@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Personalized Tour Guide</title>
+    
+        <link rel="stylesheet" href="responsive.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="35x35"
+            href="logo.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+
+    <style>
+        /* Root element (aka html) */
+:root {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  /* CSS Variables */
+  /* Fonts */
+  --ff-parisienne: "Parisienne", cursive;
+  --ff-montserrat: "Montserrat", sans-serif;
+  --ff-lora: "Lora", serif;
+  --ff-roboto: "Roboto", sans-serif;
+  --ff-rubik-dirt: "Rubik Dirt", cursive;
+  --fs-paragraphs: calc(0.8rem + 0.35vw);
+  --fs-links-btns: calc(0.65rem + 0.5vw);
+}
+
+/* Global */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+span {
+  color: #7c7c7c;
+  padding: 0px 40px;
+}
+
+/* .active {
+  color: #fc036b;
+  border-radius: 20px;
+  background: whitesmoke;
+  font-weight: bold;
+} */
+
+body,
+html {
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 98%;
+  max-width: 91rem;
+  margin: 0 auto;
+}
+
+/*scrollbar*/
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: gray;
+  border-radius: 10px;
+}
+
+/* Navbar */
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: saturate(180%) blur(10px);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 5px;
+  z-index: 10;
+  color: whitesmoke;
+}
+
+.logo {
+  font-family: var(--ff-rubik-dirt);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  padding: 0 1.2rem;
+  font-weight: 300;
+  color: rgb(254, 252, 252); 
+  
+  
+}
+
+
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li {
+  font-family: var(--ff-montserrat);
+  margin: 0px 15px;
+}
+
+.nav-links li a {
+  color: white;
+  cursor: pointer;
+}
+
+.cir_border {
+  padding: 6px 20px;
+  font-weight: bold;
+  border: 2px hidden whitesmoke;
+  border-radius: 20px;
+  margin: 0px -10px;
+}
+
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #030507;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background: #2b2b2c;
+            padding: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+      
+
+        .hero {
+            background: url('photo.jpg') no-repeat center center/cover;
+            color: rgb(234, 240, 211);
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+        }
+
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            margin-bottom: 20px;
+            color: #040506;
+        }
+
+        .destination {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .destination-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .destination-card:hover {
+            transform: scale(1.05);
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .destination-card h3 {
+            padding: 15px;
+            color: #333;
+        }
+
+        .destination-card button {
+            background: #070707;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .destination-card button:hover {
+            background: #0a0a0b;
+        }
+
+        footer {
+            background: #0f0f10;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 20px;
+        }
+
+        .modal-content button {
+            background: #090909;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background: #050505;
+        }
+        .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: saturate(180%) blur(10px);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 5px;
+  z-index: 10;
+  color: whitesmoke;
+}
+
+.logo {
+  font-family: var(--ff-rubik-dirt);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  padding: 0 1.2rem;
+  font-weight: 300;
+  color: rgb(254, 252, 252); 
+  
+  
+}
+
+
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-links li {
+  font-family: var(--ff-montserrat);
+  margin: 0px 15px;
+}
+
+.nav-links li a {
+  color: white;
+  cursor: pointer;
+}
+.nav-links li a:hover{
+    background: #040506;
+}
+.search-container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            margin-top: 2rem;
+            border: 2px solid #080808;
+            border-radius: 25px;
+            padding: 10px;
+            background-color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            padding: 8px;
+        }
+
+        .search-bar button {
+            border: none;
+            background-color: #46214c;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+
+        .suggestions {
+            margin-top: 10px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            max-height: 200px;
+            overflow-y: auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .suggestions div {
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .suggestions div:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav class="navbar glass" style="height: 70px">
+        <span
+            ><a href="#home" style="display: flex; align-items: center"
+                ><img
+                class="img2"
+                src="logo.png"
+                width="120"
+                style="margin: -25px -20px -30px -20px"
+            />
+            <h1 class="logo">TRAVERSING INDIA</h1></a
+        ></span>
+        <ul class="nav-links">
+            <li>
+                <a href="index.html" id="pri" class="active cir_border">Home</a>
+            </li>
+            <li><a href="#destinations" id="destinations" class="cir_border">Destinations</a></li>
+            <li>
+                <a href="#top packages" id="packages" class="cir_border">Packages</a>
+            </li>
+            <li>
+                <a href="#contact us" id="contact"class="cir_border">Contact</a>
+            </li>
+        </ul>
+        <img src="./img/menu-btn.png" alt="" class="menu-btn" />
+    </nav>
+</header>
+<div class="hero">
+    <h1>||देवभूमि उत्तराखंड||</h1>
+    <p>Uttarakhand, known as the "Land of Gods," is a northern Indian state nestled in the Himalayas. It is famed for its stunning landscapes, sacred temples, serene lakes, and adventure destinations. Popular spots like Rishikesh, Nainital, and Jim Corbett National Park make it a haven for nature lovers and spiritual seekers.</p>
+</div>
+<!-----Search Button------>
+<!-- <div class="search-container">
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search Your Destination...">
+        <button type="button">Search</button>
+    </div>
+    <div class="suggestions" id="suggestionsBox"></div>
+</div> -->
+
+<!-- <script>
+    const states = [
+    "Andhra Pradesh","Arunachal Pradesh","Assam","Bihar","Chhattisgarh","Goa","Gujarat","Haryana","Himachal Pradesh","Jharkhand","Karnataka","Kerala","Madhya Pradesh","Maharashtra","Manipur","Meghalaya","Mizoram","Nagaland","Odisha","Punjab","Rajasthan","Sikkim", "Tamil Nadu","Telangana","Tripura","Uttar Pradesh","Uttarakhand","West Bengal","Andaman and Nicobar Islands","Chandigarh","Dadra and Nagar Haveli","Daman and Diu","Lakshadweep","Delhi","Puducherry","Jammu & Kashmir","Ladakh"
+    ];
+
+    const searchInput = document.getElementById("searchInput");
+    const suggestionsBox = document.getElementById("suggestionsBox");
+
+    searchInput.addEventListener("input", () => {
+        const input = searchInput.value.toLowerCase();
+        suggestionsBox.innerHTML = ""; // Clear previous suggestions
+
+        if (input) {
+            const filteredStates = states.filter(state => 
+                state.toLowerCase().includes(input)
+            );
+
+            if (filteredStates.length > 0) {
+                filteredStates.forEach(state => {
+                    const suggestionDiv = document.createElement("div");
+                    suggestionDiv.textContent = state;
+                    suggestionDiv.addEventListener("click", () => {
+                        searchInput.value = state; // Select state
+                        suggestionsBox.innerHTML = ""; // Clear suggestions
+                    });
+                    suggestionsBox.appendChild(suggestionDiv);
+                });
+            } else {
+                suggestionsBox.innerHTML = "<div>No results found</div>";
+            }
+
+            suggestionsBox.style.display = "block";
+        } else {
+            suggestionsBox.style.display = "none";
+        }
+    });
+
+    document.addEventListener("click", (e) => {
+        if (!e.target.closest(".search-container")) {
+            suggestionsBox.style.display = "none";
+        }
+    });
+
+</script> -->
+<!----- Destinations Section ----->
+<section id="destinations" class="section">
+    <h2>Top Destinations</h2>
+    <div id="destinationCards" class="destination">
+        <div class="destination-card" data-title="Uttarakhand">
+            <img src="Dehradune.jpg" alt="Dehradune">
+            <h3>Dehradune</h3>
+            <button onclick="openModal('Dehradune, Uttarakhand')">Book Now</button>
+        </div>
+        <div class="destination-card" data-title="Meghalaya">
+            <img src="kedarnath.jpg" alt="kedarnath">
+            <h3>Kedarnath</h3>
+            <button onclick="openModal('Cherrapunji, Meghalaya')">Book Now</button>
+        </div>
+        <div class="destination-card" data-title="Goa">
+            <img src="rishikesh.jpg" alt="rishikesh">
+            <h3>Rishikesh</h3>
+            <button onclick="openModal('Goa')">Book Now</button>
+        </div>
+        <div class="destination-card" data-title="Rajasthan">
+            <img src="badrinath.jpg" alt="badrinath">
+            <h3>Badrinath</h3>
+            <button onclick="openModal('Jaipur, Rajasthan')">Book Now</button>
+        </div>
+        <div class="destination-card" data-title="Kerala">
+            <img src="haridwar.jpg" alt="haridwar">
+            <h3>Haridwar</h3>
+            <button onclick="openModal('Munnar Hills, Kerala')">Book Now</button>
+        </div>
+        <div class="destination-card" data-title="West Bengal">
+            <img src="lansdowne.jpg" alt="lansdowne">
+            <h3>Lansdowne</h3>
+            <button onclick="openModal('Kolkata, West Bengal')">Book Now</button>
+        </div>
+        
+        <div class="destination-card" data-title="Assam">
+            <img src="nainital.jpg" alt="nainital">
+            <h3>Nainital</h3>
+            <button onclick="openModal('Guwahati, Assam')">Book Now</button>
+        </div>
+        <div class="destination-card" data-title="Odisha">
+            <img src="mussoorie.jpg" alt="mussoorie">
+            <h3>Mussoorie</h3>
+            <button onclick="openModal('Puri, Odisha')">Book Now</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    const destinationCards = document.querySelectorAll(".destination-card");
+
+    // Filter destination cards based on search input
+    searchInput.addEventListener("input", () => {
+        const input = searchInput.value.toLowerCase();
+        destinationCards.forEach(card => {
+            const title = card.dataset.title.toLowerCase();
+            if (title.includes(input)) {
+                card.style.display = "block"; // Show matching cards
+            } else {
+                card.style.display = "none"; // Hide non-matching cards
+            }
+        });
+    });
+</script>
+
+
+<section id="packages" class="section">
+    <h2>Tour Packages</h2>
+    <p>Choose from a wide variety of packages to suit your needs.</p>
+</section>
+
+<section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Email: tours@personalizedguide.com | Phone: +123-456-7890</p>
+</section>
+
+<footer>
+    <p>&copy; 2024 Advanced Personalized Tour Guide. All rights reserved.</p>
+</footer>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <h3>Booking Inquiry</h3>
+        <p id="destinationName"></p>
+        <button onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script>
+    function openModal(destination) {
+        document.getElementById('destinationName').innerText = `You are booking for: ${destination}`;
+        document.getElementById('modal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('modal').style.display = 'none';
+    }
+    
+</script>
+
+</body>
+</html>
