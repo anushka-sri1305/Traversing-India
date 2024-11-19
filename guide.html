@@ -255,8 +255,8 @@ html {
             padding: 10px 0;
         }
 
-        /* Modal Styles */
-        .modal {
+        /* Modal Styles 
+        .button {
             display: none;
             position: fixed;
             top: 0;
@@ -268,7 +268,7 @@ html {
             align-items: center;
         }
 
-        .modal-content {
+        .button-content {
             background: white;
             padding: 20px;
             border-radius: 10px;
@@ -277,7 +277,7 @@ html {
             text-align: center;
         }
 
-        .modal-content h3 {
+        .button-content h3 {
             margin-bottom: 20px;
         }
 
@@ -291,7 +291,7 @@ html {
 
         .modal-content button:hover {
             background: #050505;
-        }
+        }  */
         .navbar {
   position: fixed;
   top: 0;
@@ -487,46 +487,49 @@ html {
 <section id="destinations" class="section">
     <h2>Top Destinations</h2>
     <div id="destinationCards" class="destination">
-        <div class="destination-card" data-title="Uttarakhand">
-            <img src="Dehradune.jpg" alt="Uttarakhand">
-            <h3>Uttarakhand</h3>
-            <button onclick="openModal('Uttarakhand')">Click Here</button>
-        </div>
+        <a href="uttrakhand.html">
+            <div class="destination-card" data-title="Uttarakhand">
+                <img src="Dehradun.png" alt="Uttarakhand">
+                <h3>Uttarakhand</h3>
+                
+    
+            </div>
+        </a>
         <div class="destination-card" data-title="Meghalaya">
             <img src="meghalaya.jpg" alt="Meghalaya">
             <h3>Meghalaya</h3>
-            <button onclick="openModal('Meghalaya')">Click Here</button>
+            
         </div>
         <div class="destination-card" data-title="Goa">
             <img src="goa.jpg" alt="Goa">
             <h3>Goa</h3>
-            <button onclick="openModal('Goa')">Click Here</button>
+            
         </div>
         <div class="destination-card" data-title="Rajasthan">
             <img src="jaipur.jpg" alt="Rajasthan">
             <h3>Rajasthan</h3>
-            <button onclick="openModal('Rajasthan')">Click Here</button>
+            
         </div>
         <div class="destination-card" data-title="Kerala">
             <img src="kerala.jpg" alt="Kerala">
             <h3>Kerala</h3>
-            <button onclick="openModal('Kerala')">Click Here</button>
+            
         </div>
         <div class="destination-card" data-title="West Bengal">
             <img src="kolkata.jpg" alt="West Bengal">
             <h3>West Bengal</h3>
-            <button onclick="openModal('West Bengal')">Click Here</button>
+            
         </div>
         
         <div class="destination-card" data-title="Assam">
             <img src="ghuwahati.jpg" alt="Assam">
             <h3>Assam</h3>
-            <button onclick="openModal('Assam')">Click Here</button>
+            
         </div>
         <div class="destination-card" data-title="Odisha">
             <img src="puri.jpg" alt="Odisha">
             <h3>Odisha</h3>
-            <button onclick="openModal('Odisha')">Click Here</button>
+            
         </div>
     </div>
 </section>
@@ -556,14 +559,14 @@ html {
 
 <section id="contact" class="section">
     <h2>Contact Us</h2>
-    <p>Email: tours@personalizedguide.com | Phone: +123-456-7890</p>
+    <p>Email: tourism@traversingindia.com | Phone: +123-456-7890</p>
 </section>
 
 <footer>
     <p>&copy; 2024 Advanced Personalized Tour Guide. All rights reserved.</p>
 </footer>
 
-<!-- Modal -->
+<!-- Modal --
 <div id="modal" class="modal">
     <div class="modal-content">
         <h3>Booking Inquiry</h3>
@@ -582,7 +585,7 @@ html {
         document.getElementById('modal').style.display = 'none';
     }
     
-</script>
+</script>--->
 
 </body>
 </html>
