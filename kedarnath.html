@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel to Kedarnath</title>
+    <link rel="stylesheet" href="responsive.css" />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="35x35"
+            href="logo.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+    <style>
+        /* Reset and Base Styling */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        body {
+            color: #333;
+            background-color: #f7f7f7;
+        }
+
+        /* Header */
+    header {
+      height: 100vh;
+      background: linear-gradient(135deg, #060e1b, #2d1146);
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 15px;
+      animation: fadeIn 2s ease-in-out;
+    }
+    header p {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      animation: fadeIn 2.5s ease-in-out;
+    }
+    header button {
+      background-color: white;
+      color: #251531;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: transform 0.3s, background-color 0.3s;
+    }
+    header button:hover {
+      background-color: #200c2e;
+      color: white;
+      transform: scale(1.1);
+    }
+
+
+        /* Navigation Bar */
+        nav {
+            background: #030303;
+            padding: 0.8rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        nav a:hover {
+            color: #f1c40f;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 3rem 1rem;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #222b33;
+        }
+        .content {
+            max-width: 1200px;
+            margin: auto;
+        }
+        .section-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+        .description{
+            padding: 20px;
+            margin: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card {
+            background: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            flex: 1 1 calc(33.33% - 2rem);
+            max-width: 350px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+        }
+        .card img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #333434;
+        }
+        .card p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Gallery Section */
+        .gallery-container img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+    
+/* Guide section*/
+.destination {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .destination-card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .destination-card:hover {
+            transform: scale(1.05);
+        }
+
+        .destination-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .destination-card h3 {
+            padding: 15px;
+            color: #333;
+        }
+
+        .destination-card button {
+            background: #070707;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            margin-bottom: 15px;
+        }
+
+        .destination-card button:hover {
+            background: #0a0a0b;
+        }
+
+        footer {
+            background: #0f0f10;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .modal-content h3 {
+            margin-bottom: 20px;
+        }
+
+        .modal-content button {
+            background: #090909;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background: #050505;
+        }
+
+
+
+        /* Review Section */
+        .review-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .review-section h3 {
+            color: #090a0a;
+            margin-bottom: 1rem;
+        }
+        .review-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .review-form input,
+        .review-form textarea,
+        .review-form button {
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .review-form textarea {
+            resize: vertical;
+            height: 100px;
+        }
+        .review-form button {
+            background: #2d0234;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .review-form button:hover {
+            background: #552768;
+        }
+        .reviews-display {
+            margin-top: 2rem;
+        }
+        .review-item {
+            border-bottom: 1px solid #ddd;
+            padding: 1rem 0;
+        }
+        .review-item:last-child {
+            border-bottom: none;
+        }
+        .review-item h4 {
+            font-size: 1.2rem;
+            color: #020303;
+        }
+        .review-item p {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Footer Section */
+        footer {
+            background: #040507;
+            color: white;
+            text-align: center;
+            padding: 1.5rem 0;
+            margin-top: 2rem;
+        }
+
+        /* Media Queries */
+        @media (max-width: 1024px) {
+            .card {
+                flex: 1 1 calc(50% - 1rem);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                flex: 1 1 100%;
+            }
+            header h1 {
+                font-size: 2.5rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                font-size: 0.8rem;
+                margin: 0 0.5rem;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+ <!-- Header -->
+ <header><img
+    class="img2"
+    src="logo.png"
+/>
+    <h1>Welcome to Kedarnath</h1>
+    <p>A Sacred Pilgrimage Destination</p>
+    <button onclick="document.querySelector('nav').scrollIntoView()">Start Exploring</button>
+  </header>
+    <nav>
+        <a href="uttrakhand.html">Home</a>
+        <a href="#places">Places</a>
+        <a href="#hotels">Hotels</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#destinations">Tour Guides</a>
+        <a href="#reviews">Reviews</a>
+    </nav>
+    <!---About section-->
+    <section id="description">
+        <h2>About Kedarnath</h2>
+        <p>Kedarnath, nestled in the majestic Himalayan range in the Indian state of Uttarakhand, is one of the most revered pilgrimage sites in India. It is part of the Char Dham Yatra, a spiritual journey that includes Yamunotri, Gangotri, and Badrinath. Kedarnath is dedicated to Lord Shiva and is believed to be the place where the Pandavas sought forgiveness for their sins. The Kedarnath Temple, built by the Pandavas, is a marvel of ancient stone architecture and a place of immense spiritual significance.</p>
+        <p>The temple is located at an altitude of 3,583 meters (11,755 feet) above sea level, surrounded by towering snow-capped peaks and glaciers, creating a serene and awe-inspiring atmosphere. The trek to Kedarnath is challenging, but the breathtaking views and divine blessings make the journey worthwhile. Thousands of pilgrims visit Kedarnath every year, braving the difficult terrain and weather conditions to experience the holiness and beauty of this sacred place. Apart from its religious significance, Kedarnath is also a place of tranquility, making it a favorite destination for spiritual seekers and nature enthusiasts alike.</p>
+        <p>The temple is open for a limited period during the summer months due to heavy snowfall during winters. Visitors are encouraged to plan their trips between May and October, which is considered the ideal time to visit Kedarnath. The spiritual journey to this holy place offers a perfect blend of devotion, adventure, and scenic beauty, making it an unforgettable experience for all who visit.</p>
+    </section>
+
+
+    <!-- Places Section -->
+    <section id="places">
+        <div class="content">
+            <h2 class="section-title">Places to Visit</h2>
+            <div class="section-container">
+                <div class="card">
+                    <img src="sonprayag.jpg" alt="Sonprayag">
+                    <h3>Sonprayag</h3>
+                    <p>Sonprayag is a small town located at the confluence of the rivers Mandakini and Son Ganga. It serves as the base for the trek to Kedarnath and is the point from where you can take a jeep to Gaurikund.</p>
+                </div>
+                <div class="card">
+                    <img src="gaurikund.jpg" alt="Gaurikund">
+                    <h3>Gaurikund</h3>
+                    <p>Gaurikund is the starting point for the trek to Kedarnath. It is a sacred place dedicated to Goddess Parvati and is known for its hot water spring. From here, the trek begins, leading pilgrims towards the Kedarnath temple.</p>
+                </div>
+                <div class="card">
+                    <img src="image2.jpg" alt="Guptkashi">
+                    <h3>Guptkashi</h3>
+                    <p>Located en route to Kedarnath, Guptkashi is a beautiful town known for its ancient temples. It is often visited by pilgrims before proceeding to Kedarnath, and it offers picturesque views of the surrounding mountains.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hotels Section -->
+    <section id="hotels">
+        <div class="content">
+            <h2 class="section-title">Best Hotels</h2>
+            <div class="section-container">
+                <div class="card">
+                    <img src="kedarvalley.jpg" alt="Luxury Stay">
+                    <h3>Kedar Valley Resort</h3>
+                    <p>Rating: ★★★★☆</p>
+            <button onclick="openModal('Dehradun, Uttarakhand')">Book Now</button>
+                </div>
+                <div class="card">
+                    <img src="kunj.jpg" alt="Budget Inn">
+                    <h3>Hotel Kunj Kedar</h3>
+                    <p>Affordable and comfortable stay.</p>
+                    <p>Rating: ★★★★☆</p>
+                    <button onclick="openModal('Dehradun, Uttarakhand')">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <div class="content">
+            <h2 class="section-title">Images of Kedarnath</h2>
+            <div class="gallery-container section-container">
+                <div class="card">
+                    <img src="image1.jpg" alt="Scenic View 1">
+                </div>
+                <div class="card">
+                    <img src="image2.jpg" alt="Scenic View 2">
+                </div>
+                <div class="card">
+                    <img src="image3.jpg" alt="Scenic View 2">
+                </div>
+                <div class="card">
+                    <img src="image4.jpg" alt="Scenic View 2">
+                </div>
+                <div class="card">
+                    <img src="image5.jpg" alt="Scenic View 2">
+                </div>
+                <div class="card">
+                    <img src="image6.jpg" alt="Scenic View 2">
+                </div>
+                <div class="card">
+                    <img src="image7.jpg" alt="Scenic View 2">
+                </div>
+                <div class="card">
+                    <img src="image8.jpg" alt="Scenic View 2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+     <!-- Road map -->
+ <section id="roadmap">
+    <div class="content">
+        <h2 class="section-title">Road Map to Kedarnath</h2>
+        <h3>How to Reach Kedarnath from New Delhi</h3>
+        <p>Reaching Kedarnath from New Delhi requires a combination of train, road, and trekking. The journey takes you through picturesque towns, valleys, and rivers, offering you a chance to experience the serene beauty of the Himalayan region.</p>
+        <br>
+        <div class="section-container">
+            <div class="card">
+                <h3>By Train</h3>
+                <p>The nearest railway stations to Kedarnath are Haridwar and Rishikesh. From New Delhi, you can board a train to either of these stations. The train journey from New Delhi to Haridwar takes around 5 to 6 hours, while the journey to Rishikesh takes about 6 hours. Once you reach Haridwar or Rishikesh, you can take a bus or hire a taxi to reach Sonprayag, which is the starting point for the trek to Kedarnath. The road journey from Haridwar or Rishikesh to Sonprayag takes approximately 8 to 10 hours, depending on traffic and weather conditions.</p>
+            </div>
+            <div class="card">
+                <h3>By Road</h3>
+                <p>You can travel by road from Haridwar or Rishikesh to Sonprayag, which is about 210 km from Haridwar. Sonprayag is well-connected by roads from major towns in Uttarakhand. From Sonprayag, take a shared jeep to Gaurikund (approximately 5-6 km), which is the base for the Kedarnath trek. The road from Haridwar to Sonprayag passes through the scenic towns of Rishikesh, Devprayag, and Rudraprayag, offering travelers a chance to enjoy the stunning landscapes of the region.</p>
+            </div>
+            <div class="card">
+                <h3>Trekking</h3>
+                <p> Once you reach Gaurikund, the trek to Kedarnath begins. The trek is about 16 kilometers long and takes around 6-8 hours to complete, depending on your pace and physical fitness. The trail is steep in some areas but offers spectacular views of the surrounding mountains and valleys. The journey to Kedarnath on foot is a spiritual experience, with the snow-capped peaks of the Himalayas offering a divine backdrop throughout the trek.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+   <!-- Tour Guide Section -->
+<section id="destinations" class="section">
+    <h2 class="section-title">Hire a Tour Guide</h2>
+    <div id="destinationCards" class="destination">
+        <div class="destination-card" data-title="Uttarakhand">
+            <img src="guide1.jpg" alt="Guide 1">
+                <h3>Anuj Tiwari</h3>
+                <p>Languages: English, Hindi</p>
+                <p>Experience : 13 years</p>
+                <p>Rating: ★★★★☆</p>
+            <button onclick="openModal('Dehradun, Uttarakhand')">Book Now</button>
+        </div>
+        <div class="destination-card" data-title="Meghalaya">
+            <img src="guide2.jpg" alt="Guide 2">
+                <h3>Vidhanshu Singh</h3>
+                <p>Languages: English, Bengali</p>
+                <p>Experience : 13 years</p>
+                <p>Rating: ★★★★☆</p>
+            <button onclick="openModal('Cherrapunji, Meghalaya')">Book Now</button>
+        </div>
+        <div class="destination-card" data-title="Goa">
+            <img src="guide3.jpg" alt="Guide 3">
+            <h3>Kanish Rai</h3>
+            <p>Languages: Hindi, Marathi</p>
+            <p>Experience : 7 years</p>
+            <p>Rating: ★★★★☆</p>
+            <button onclick="openModal('Goa')">Book Now</button>
+        </div>
+        <div class="destination-card" data-title="Rajasthan">
+            <img src="guide4.jpg" alt="Guide 4">
+                <h3>Hridyansh</h3>
+                <p>Languages: English, Tamil</p>
+                <p>Experience : 9 years</p>
+                <p>Rating: ★★★★☆</p>
+            <button onclick="openModal('Jaipur, Rajasthan')">Book Now</button>
+        </div>
+        <div class="destination-card" data-title="Kerala">
+            <img src="guide5.jpg" alt="Guide 5">
+            <h3>Gaurang Agarwal</h3>
+            <p>Languages: Hindi, Punjabi</p>
+            <p>Experience : 10 years</p>
+            <p>Rating: ★★★★★</p>
+            <button onclick="openModal('Munnar Hills, Kerala')">Book Now</button>
+        </div>
+        <div class="destination-card" data-title="West Bengal">
+            <img src="guide6.jpg" alt="Guide 6">
+            <h3>Sameer Yadav</h3>
+            <p>Languages: English, Kannada</p>
+            <p>Experience : 11 years</p>
+            <p>Rating: ★★★★☆</p>
+            <button onclick="openModal('Kolkata, West Bengal')">Book Now</button>
+        </div>
+        
+        <div class="destination-card" data-title="Assam">
+            <img src="guide7.jpg" alt="Guide 7">
+            <h3>Anshuman Singh</h3>
+            <p>Languages: Hindi, Gujarati</p>
+            <p>Experience : 15 years</p>
+            <p>Rating: ★★★☆☆</p>
+            <button onclick="openModal('Guwahati, Assam')">Book Now</button>
+        </div>
+        <div class="destination-card" data-title="Odisha">
+            <img src="guide8.jpg" alt="Guide 8">
+            <h3>Kunal Shukla</h3>
+            <p>Languages: English, Telugu</p>
+            <p>Experience : 8 years</p>
+            <p>Rating: ★★★★☆</p>
+            <button onclick="openModal('Puri, Odisha')">Book Now</button>
+        </div>
+    </div>
+</section>
+
+<script>
+    const destinationCards = document.querySelectorAll(".destination-card");
+
+    // Filter destination cards based on search input
+    searchInput.addEventListener("input", () => {
+        const input = searchInput.value.toLowerCase();
+        destinationCards.forEach(card => {
+            const title = card.dataset.title.toLowerCase();
+            if (title.includes(input)) {
+                card.style.display = "block"; // Show matching cards
+            } else {
+                card.style.display = "none"; // Hide non-matching cards
+            }
+        });
+    });
+</script>
+    
+
+    <!-- Reviews Section -->
+    <section id="reviews">
+        <div class="content">
+            <h2 class="section-title">User Reviews</h2>
+            <div class="review-section">
+                <h3>Share Your Experience</h3>
+                <form class="review-form" onsubmit="submitReview(event)">
+                    <input type="text" id="reviewer-name" placeholder="Your Name" required>
+                    <textarea id="review-content" placeholder="Write your review..." required></textarea>
+                    <button type="submit">Submit Review</button>
+                </form>
+                <div class="reviews-display" id="reviews-display">
+                    <h3>What People Are Saying</h3>
+                    <!-- Reviews will be dynamically displayed here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2024 Explore Dehradun. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function submitReview(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('reviewer-name').value;
+            const content = document.getElementById('review-content').value;
+
+            const reviewElement = document.createElement('div');
+            reviewElement.classList.add('review-item');
+            reviewElement.innerHTML = `<h4>${name}</h4><p>${content}</p>`;
+
+            const reviewsDisplay = document.getElementById('reviews-display');
+            reviewsDisplay.appendChild(reviewElement);
+
+            document.getElementById('reviewer-name').value = '';
+            document.getElementById('review-content').value = '';
+        }
+    </script>
+
+</body>
+</html>
