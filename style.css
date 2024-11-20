@@ -393,16 +393,19 @@ section {
 }
 
 #about_us {
-  background: url("aboutback.jpg");
+  /* background: url("aboutback.jpg"); */
+  background:linear-gradient(to right,rgba(141, 74, 213, 0.775),rgba(78, 135, 240, 0.696)) ;
+  display: flex;
   width: 100%;
   height: 630px;
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
+  border-radius: 50px;
   margin: 30px 0px 0px 0px;
 }
 
-#about_us div {
+#about_us span {
   padding: 10px;
   display: grid;
   align-items: center; 
@@ -411,31 +414,26 @@ section {
   position: relative;
 }
 
-
-#about_us div span {
-  margin: 0;
-  position: absolute;
-  top: 60%;
-  opacity: 0;
-  left: 80%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-  transition: 1s;
+@font-face {
+  font-family: "Satisfy";
+  src: url(Satisfy/Satisfy-Regular.ttf);
 }
 
-#about_us p {
-  width: 43em;
+#para{
+  font-size: 2em;
+  display:block;
+  position: relative;
+  font-family: "Satisfy";
+  font-size: 2.2em;
   color: white;
-  text-align: justify;
-  padding-top: 14em;
-  font-family: "Work Sans", sans-serif;
-  margin-left: 6em;
-}
-
-#about_us p::first-letter {
-  padding-left: 47px;
-  font-size: 55px;
-  color: #fc036b;
+  padding: 20px;
+  top: 10%;
+  right: 5px;
+  border-radius: 50px;
+  bottom: 25%;
+  box-sizing: border-box;
+  width: 60em;
+  height: 13em;
 }
 
 /* Contributors */
@@ -970,6 +968,25 @@ input[type=radio] {
 
 #item-3:checked ~ .player #test  {
   transform: translateY(-80px);
+}
+
+#home{
+  padding-top: 5%;
+}
+#events{
+  padding-top: 5%;
+}
+#tours{
+  padding-top: 5%;
+}
+#about{
+  padding-top: 5%;
+}
+#contribution{
+  padding-top: 5%;
+}
+#contact{
+  padding-top: 5%;
 }
 
 /* end */
